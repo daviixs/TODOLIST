@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>To-Do • List</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="todo" role="application" aria-labelledby="todo-title" data-js="todo-root">
+    <header class="todo__header">
+      <div class="todo__title-wrap">
+        <h1 id="todo-title" class="todo__title">Minhas tarefas</h1>
+        <p class="todo__subtitle">Organize seu dia — simples e rápido</p>
+      </div>
+      <div class="todo__controls">
+        <nav class="todo__filters" role="tablist" aria-label="Filtros de tarefas" data-js="filter">
+          <button class="todo__filter filter--active" role="tab" aria-selected="true" data-filter="all">Todas</button>
+          <button class="todo__filter" role="tab" aria-selected="false" data-filter="done">Concluídas</button>
+          <button class="todo__filter" role="tab" aria-selected="false" data-filter="pending">Pendentes</button>
+        </nav>
+        <div class="todo__counter" aria-live="polite" id="task-counter">3 tarefas</div>
+      </div>
+    </header>
+    <form class="todo__form" data-js="add-form" novalidate>
+      <label for="task-input" class="visually-hidden">Nova tarefa</label>
+      <div class="todo__form-row">
+        <input
+          id="task-input"
+          class="todo__input"
+          name="task"
+          type="text"
+          placeholder="O que você precisa fazer?"
+          required
+          minlength="1"
+          aria-invalid="false"
+          data-js="task-input"
+        />
+        <button type="submit" class="btn btn--primary" data-js="add-btn" aria-label="Adicionar tarefa">Adicionar</button>
+      </div>
+      <p class="todo__error" aria-hidden="true">Informe uma tarefa válida.</p>
+    </form>
+    <section class="todo__empty" data-js="empty-state" aria-hidden="true">
+      <div class="todo__empty-illustration" aria-hidden="true">
+        <span class="emoji">📝</span>
+      </div>
+      <h2 class="todo__empty-title">Nada por aqui</h2>
+      <p class="todo__empty-desc">Adicione sua primeira tarefa usando o campo acima. Você pode marcar como concluída ou removê-la.</p>
+    </section>
+    <ul class="todo__list" role="list" data-js="task-list" aria-labelledby="todo-title">
+      <li class="task" role="listitem" data-js="task-item" tabindex="0">
+        <label class="task__left">
+          <input class="task__check" type="checkbox" aria-label="Marcar tarefa como concluída" data-js="toggle-complete" />
+          <span class="custom-check" aria-hidden="true">
+            <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M1 5.2L4.2 8.4L11 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </label>
+        <span class="task__title" title="Agendar corte">Agendar corte com o cliente</span>
+        <button class="task__remove" type="button" aria-label="Remover tarefa 'Agendar corte com o cliente'" data-js="remove-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 6h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M10 11v6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M14 11v6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </li>
+      <li class="task task--completed" role="listitem" data-js="task-item" tabindex="0" aria-checked="true">
+        <label class="task__left">
+          <input class="task__check" type="checkbox" checked aria-label="Desmarcar tarefa" data-js="toggle-complete" />
+          <span class="custom-check" aria-hidden="true">
+            <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M1 5.2L4.2 8.4L11 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </label>
+        <span class="task__title">Pagar fornecedores</span>
+        <button class="task__remove" type="button" aria-label="Remover tarefa 'Pagar fornecedores'" data-js="remove-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 6h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M10 11v6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M14 11v6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </li>
+      <li class="task" role="listitem" data-js="task-item" tabindex="0">
+        <label class="task__left">
+          <input class="task__check" type="checkbox" aria-label="Marcar tarefa como concluída" data-js="toggle-complete" />
+          <span class="custom-check" aria-hidden="true">
+            <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M1 5.2L4.2 8.4L11 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </label>
+        <span class="task__title">Enviar relatório semanal</span>
+        <button class="task__remove" type="button" aria-label="Remover tarefa 'Enviar relatório semanal'" data-js="remove-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 6h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M10 11v6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M14 11v6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </li>
+    </ul>
+  </main>
+  <style>
+    .visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap;border:0;padding:0;margin:-1px;}
+  </style>
+</body>
+</html>
