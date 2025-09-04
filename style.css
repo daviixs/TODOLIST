@@ -1,25 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500');
 
-/* Variáveis de cores - Paleta Principal */
+/* Variáveis de cores - Nova Paleta Harmonizada */
 :root {
-    --primary: #5B8FB9;
-    /* Azul sereno para botões principais */
-    --secondary: #61B0B7;
-    /* Verde-azulado tranquilo para destaques */
-    --background: #F6F6F6;
-    /* Branco levemente acinzentado para fundo */
-    --text-primary: #2D4356;
-    /* Azul escuro quase grafite para texto principal */
-    --text-secondary: #6D7B8C;
-    /* Cinza-azulado médio para texto secundário */
-    --accent: #B6E2D3;
-    /* Verde menta muito claro para realces suaves */
-    --sidebar-bg: #ffffff;
-    --sidebar-header: #e8f4f8;
-    --task-item: #ffffff;
-    --shadow: rgba(0, 0, 0, 0.1);
-    --delete: #ff7675;
-    --delete-hover: #d63031;
+    --primary: #4A6FA5;         /* Azul mais vibrante e moderno */
+    --secondary: #6B9AC4;       /* Azul secundário suave */
+    --background: #F8F9FA;      /* Fundo mais claro e limpo */
+    --text-primary: #2D3748;    /* Texto principal mais escuro */
+    --text-secondary: #718096;  /* Texto secundário mais suave */
+    --accent: #A5D8FF;          /* Azul claro para destaques */
+    --sidebar-bg: #FFFFFF;      /* Fundo da sidebar branco puro */
+    --sidebar-header: #E6F2FF;  /* Cabeçalho da sidebar mais suave */
+    --task-item: #FFFFFF;       /* Itens da lista brancos */
+    --shadow: rgba(0, 0, 0, 0.08); /* Sombra mais suave */
+    --delete: #FC8181;          /* Vermelho mais suave para delete */
+    --delete-hover: #E53E3E;    /* Vermelho mais escuro no hover */
+    --success: #48BB78;         /* Verde para tarefas concluídas */
+    --border: #E2E8F0;          /* Cor para bordas */
 }
 
 /* Base Styles */
@@ -35,6 +31,7 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: var(--background);
     color: var(--text-primary);
+    line-height: 1.6;
 }
 
 /* Sidebar Styling */
@@ -44,43 +41,54 @@ body {
     width: 250px;
     height: 100%;
     background: var(--sidebar-bg);
-    transition: all 0.5s ease;
+    transition: all 0.4s ease;
     z-index: 1000;
-    box-shadow: 2px 0 10px var(--shadow);
+    box-shadow: 2px 0 15px var(--shadow);
+    overflow-y: auto;
 }
 
 .sidebar header {
-    font-size: 22px;
+    font-size: 20px;
     color: var(--text-primary);
     line-height: 70px;
     text-align: center;
     background: var(--sidebar-header);
     user-select: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid var(--border);
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.sidebar header svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--primary);
 }
 
 .sidebar ul a {
-    display: block;
-    height: 100%;
-    width: 100%;
-    line-height: 65px;
-    font-size: 20px;
+    display: flex;
+    align-items: center;
+    height: 60px;
+    font-size: 16px;
     color: var(--text-primary);
-    padding-left: 40px;
-    box-sizing: border-box;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    transition: 0.4s;
+    padding-left: 30px;
+    border-bottom: 1px solid var(--border);
+    transition: all 0.3s;
 }
 
-.sidebar ul li:hover a {
-    padding-left: 50px;
-    background-color: rgba(182, 226, 211, 0.2);
-    /* Usando a cor accent com transparência */
+.sidebar ul a:hover {
+    padding-left: 35px;
+    background-color: rgba(165, 216, 255, 0.2);
 }
 
 .sidebar ul a i {
-    margin-right: 16px;
+    margin-right: 15px;
     color: var(--primary);
+    width: 20px;
+    text-align: center;
 }
 
 /* Checkbox and Label for Menu Button */
@@ -88,130 +96,206 @@ body {
     display: none;
 }
 
-label #btn,
-label #cancel {
+label #btn, label #cancel {
     position: fixed;
-    border-radius: 3px;
+    border-radius: 50%;
     cursor: pointer;
-    transition: all 0.5s;
+    transition: all 0.4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
 }
 
 label #btn {
-    left: 40px;
-    top: 25px;
-    font-size: 35px;
+    left: 20px;
+    top: 20px;
+    font-size: 20px;
     color: white;
-    padding: 6px 12px;
     z-index: 1001;
     background: var(--primary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 label #cancel {
     z-index: 1111;
     left: -195px;
     top: 17px;
-    font-size: 30px;
+    font-size: 20px;
     color: white;
-    padding: 4px 9px;
     background: var(--secondary);
 }
 
 /* Sidebar Toggle Functionality */
-#check:checked~.sidebar {
+#check:checked ~ .sidebar {
     left: 0;
 }
 
-#check:checked~label #btn {
-    left: 250px;
+#check:checked ~ label #btn {
+    left: 210px;
     opacity: 0;
     pointer-events: none;
 }
 
-#check:checked~label #cancel {
+#check:checked ~ label #cancel {
     left: 195px;
 }
 
-#check:checked~section {
+#check:checked ~ section {
     margin-left: 250px;
 }
 
 /* To-Do List Styles */
 section {
-    transition: all 0.5s;
+    transition: all 0.4s;
     padding: 20px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     min-height: 100vh;
+    padding-top: 80px;
 }
 
 .container {
-    max-width: 500px;
+    max-width: 600px;
     width: 100%;
-    padding: 25px;
+    padding: 30px;
     background-color: var(--sidebar-bg);
     border-radius: 12px;
-    box-shadow: 0 6px 15px var(--shadow);
+    box-shadow: 0 8px 25px var(--shadow);
 }
 
 h1 {
     text-align: center;
     margin-bottom: 25px;
     color: var(--text-primary);
+    font-weight: 500;
+    font-size: 28px;
+}
+
+.input-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
 }
 
 input#taskInput {
-    width: calc(100% - 100px);
-    padding: 12px;
+    flex: 1;
+    min-width: 200px;
+    padding: 14px;
     font-size: 16px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    margin-right: 10px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
     color: var(--text-primary);
     background-color: var(--background);
+    transition: border 0.3s;
+}
+
+input#taskInput:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(74, 111, 165, 0.1);
+}
+
+#taskPriority {
+    padding: 14px;
+    font-size: 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background-color: var(--background);
+    color: var(--text-primary);
+    cursor: pointer;
+    min-width: 120px;
+    transition: border 0.3s;
+}
+
+#taskPriority:focus {
+    outline: none;
+    border-color: var(--primary);
 }
 
 .container button {
-    padding: 12px 18px;
+    padding: 14px 20px;
     font-size: 16px;
     background-color: var(--primary);
     color: #fff;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s;
+    font-weight: 500;
 }
 
 .container button:hover {
     background-color: var(--secondary);
+    transform: translateY(-2px);
 }
 
 ul#taskList {
     padding: 0;
-    margin-top: 25px;
+    margin-top: 20px;
 }
 
 li {
-    padding: 15px;
+    padding: 16px;
     margin-bottom: 12px;
     border-radius: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: all 0.3s ease;
+    transition: all 0.3s;
     background-color: var(--task-item);
-    border: 1px solid #eee;
+    border: 1px solid var(--border);
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 li:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px var(--shadow);
+    box-shadow: 0 5px 15px var(--shadow);
 }
 
 li span {
     flex: 1;
     text-align: left;
     color: var(--text-primary);
+    padding-right: 15px;
+    word-break: break-word;
+    cursor: pointer;
+}
+
+.task-completed {
+    text-decoration: line-through;
+    color: var(--text-secondary) !important;
+}
+
+.priority-tag {
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 20px;
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+.priority-alta {
+    background-color: #FED7D7;
+    color: #C53030;
+}
+
+.priority-media {
+    background-color: #FEFCBF;
+    color: #744210;
+}
+
+.priority-baixa {
+    background-color: #C6F6D5;
+    color: #22543D;
 }
 
 .deleteButton {
@@ -220,100 +304,124 @@ li span {
     color: var(--delete);
     font-size: 18px;
     cursor: pointer;
-    transition: color 0.3s ease;
+    transition: all 0.3s;
+    padding: 5px;
+    border-radius: 4px;
 }
 
 .deleteButton:hover {
     color: var(--delete-hover);
-    
-}
-
-.deleteButton i {
-    pointer-events: none;
-}
-
-svg {
-    width: 30px;
-    height: 30px;
-}
-
-.cta-button{
-  background-color: var(--accent-color);
-}
-#theme-switch{
-  height: 50px;
-  width: 50px;
-  padding: 0;
-  border-radius: 50%;
-  background-color: var(--base-variant);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 20px;
-  right: 20px;
-}
-#theme-switch svg{
-  fill: var(--primary-color);
-}
-#theme-switch svg:last-child{
-  display: none;
-}
-.darkmode #theme-switch svg:first-child{
-  display: none;
-}
-.darkmode #theme-switch svg:last-child{
-  display: block;
-}
-
-/* Tema Escuro */
-.darkmode {
-    --primary: #4dabf7;         /* Azul mais vivo para botões */
-    --secondary: #3bc9db;       /* Azul esverdeado brilhante */
-    --background: #121212;      /* Fundo principal escuro */
-    --text-primary: #f1f1f1;    /* Texto principal claro */
-    --text-secondary: #b0b0b0;  /* Texto secundário acinzentado */
-    --accent: #1f2937;          /* Cinza grafite para realces */
-    --sidebar-bg: #1e1e1e;      /* Sidebar fundo escuro */
-    --sidebar-header: #2a2a2a;  /* Cabeçalho da sidebar */
-    --task-item: #242424;       /* Fundo dos itens da lista */
-    --shadow: rgba(255, 255, 255, 0.05);
-    --delete: #ff6b6b;          
-    --delete-hover: #e03131;    
+    background-color: rgba(252, 129, 129, 0.1);
 }
 
 /* Botão de troca de tema */
 #theme-switch {
-  height: 50px;
-  width: 50px;
-  padding: 0;
-  border-radius: 50%;
-  background-color: var(--sidebar-bg);
-  box-shadow: 0 3px 8px var(--shadow);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  cursor: pointer;
-  transition: background 0.3s ease;
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    border-radius: 50%;
+    background-color: var(--sidebar-bg);
+    box-shadow: 0 3px 12px var(--shadow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 1002;
+    border: 1px solid var(--border);
+}
+
+#theme-switch:hover {
+    transform: scale(1.05);
 }
 
 #theme-switch svg {
-  width: 24px;
-  height: 24px;
-  fill: var(--primary);
+    width: 24px;
+    height: 24px;
+    fill: var(--primary);
 }
 
 #theme-switch svg:last-child {
-  display: none;
+    display: none;
+}
+
+/* Tema Escuro */
+.darkmode {
+    --primary: #63B3ED;
+    --secondary: #90CDF4;
+    --background: #1A202C;
+    --text-primary: #E2E8F0;
+    --text-secondary: #A0AEC0;
+    --accent: #2D3748;
+    --sidebar-bg: #2D3748;
+    --sidebar-header: #2C5282;
+    --task-item: #2D3748;
+    --shadow: rgba(0, 0, 0, 0.2);
+    --delete: #FC8181;
+    --delete-hover: #FEB2B2;
+    --border: #4A5568;
 }
 
 .darkmode #theme-switch svg:first-child {
-  display: none;
+    display: none;
 }
 
 .darkmode #theme-switch svg:last-child {
-  display: block;
+    display: block;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .input-container {
+        flex-direction: column;
+    }
+    
+    input#taskInput, #taskPriority, .container button {
+        width: 100%;
+    }
+    
+    section {
+        padding: 80px 15px 20px;
+    }
+    
+    #check:checked ~ section {
+        margin-left: 0;
+    }
+    
+    .sidebar {
+        box-shadow: 2px 0 25px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.progress-container {
+    margin: 15px 0;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 6px;
+    color: #ccc;
+}
+
+.progress-bar {
+    height: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #10b981, #06b6d4);
+    transition: width 0.3s ease;
+    border-radius: 8px;
 }
