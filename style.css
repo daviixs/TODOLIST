@@ -2,20 +2,34 @@
 
 /* Variáveis de cores - Nova Paleta Harmonizada */
 :root {
-    --primary: #4A6FA5;         /* Azul mais vibrante e moderno */
-    --secondary: #6B9AC4;       /* Azul secundário suave */
-    --background: #F8F9FA;      /* Fundo mais claro e limpo */
-    --text-primary: #2D3748;    /* Texto principal mais escuro */
-    --text-secondary: #718096;  /* Texto secundário mais suave */
-    --accent: #A5D8FF;          /* Azul claro para destaques */
-    --sidebar-bg: #FFFFFF;      /* Fundo da sidebar branco puro */
-    --sidebar-header: #E6F2FF;  /* Cabeçalho da sidebar mais suave */
-    --task-item: #FFFFFF;       /* Itens da lista brancos */
-    --shadow: rgba(0, 0, 0, 0.08); /* Sombra mais suave */
-    --delete: #FC8181;          /* Vermelho mais suave para delete */
-    --delete-hover: #E53E3E;    /* Vermelho mais escuro no hover */
-    --success: #48BB78;         /* Verde para tarefas concluídas */
-    --border: #E2E8F0;          /* Cor para bordas */
+    --primary: #4A6FA5;
+    /* Azul mais vibrante e moderno */
+    --secondary: #6B9AC4;
+    /* Azul secundário suave */
+    --background: #F8F9FA;
+    /* Fundo mais claro e limpo */
+    --text-primary: #2D3748;
+    /* Texto principal mais escuro */
+    --text-secondary: #718096;
+    /* Texto secundário mais suave */
+    --accent: #A5D8FF;
+    /* Azul claro para destaques */
+    --sidebar-bg: #FFFFFF;
+    /* Fundo da sidebar branco puro */
+    --sidebar-header: #E6F2FF;
+    /* Cabeçalho da sidebar mais suave */
+    --task-item: #FFFFFF;
+    /* Itens da lista brancos */
+    --shadow: rgba(0, 0, 0, 0.08);
+    /* Sombra mais suave */
+    --delete: #FC8181;
+    /* Vermelho mais suave para delete */
+    --delete-hover: #E53E3E;
+    /* Vermelho mais escuro no hover */
+    --success: #48BB78;
+    /* Verde para tarefas concluídas */
+    --border: #E2E8F0;
+    /* Cor para bordas */
 }
 
 /* Base Styles */
@@ -96,7 +110,8 @@ body {
     display: none;
 }
 
-label #btn, label #cancel {
+label #btn,
+label #cancel {
     position: fixed;
     border-radius: 50%;
     cursor: pointer;
@@ -128,21 +143,21 @@ label #cancel {
 }
 
 /* Sidebar Toggle Functionality */
-#check:checked ~ .sidebar {
+#check:checked~.sidebar {
     left: 0;
 }
 
-#check:checked ~ label #btn {
+#check:checked~label #btn {
     left: 210px;
     opacity: 0;
     pointer-events: none;
 }
 
-#check:checked ~ label #cancel {
+#check:checked~label #cancel {
     left: 195px;
 }
 
-#check:checked ~ section {
+#check:checked~section {
     margin-left: 250px;
 }
 
@@ -252,8 +267,15 @@ li {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 li:hover {
@@ -314,40 +336,6 @@ li span {
     background-color: rgba(252, 129, 129, 0.1);
 }
 
-/* Botão de troca de tema */
-#theme-switch {
-    height: 50px;
-    width: 50px;
-    padding: 0;
-    border-radius: 50%;
-    background-color: var(--sidebar-bg);
-    box-shadow: 0 3px 12px var(--shadow);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    cursor: pointer;
-    transition: all 0.3s;
-    z-index: 1002;
-    border: 1px solid var(--border);
-}
-
-#theme-switch:hover {
-    transform: scale(1.05);
-}
-
-#theme-switch svg {
-    width: 24px;
-    height: 24px;
-    fill: var(--primary);
-}
-
-#theme-switch svg:last-child {
-    display: none;
-}
-
 /* Tema Escuro */
 .darkmode {
     --primary: #63B3ED;
@@ -365,32 +353,26 @@ li span {
     --border: #4A5568;
 }
 
-.darkmode #theme-switch svg:first-child {
-    display: none;
-}
-
-.darkmode #theme-switch svg:last-child {
-    display: block;
-}
-
 /* Responsividade */
 @media (max-width: 768px) {
     .input-container {
         flex-direction: column;
     }
-    
-    input#taskInput, #taskPriority, .container button {
+
+    input#taskInput,
+    #taskPriority,
+    .container button {
         width: 100%;
     }
-    
+
     section {
         padding: 80px 15px 20px;
     }
-    
-    #check:checked ~ section {
+
+    #check:checked~section {
         margin-left: 0;
     }
-    
+
     .sidebar {
         box-shadow: 2px 0 25px rgba(0, 0, 0, 0.2);
     }
@@ -424,4 +406,54 @@ li span {
     background: linear-gradient(90deg, #10b981, #06b6d4);
     transition: width 0.3s ease;
     border-radius: 8px;
+}
+
+.card {
+    width: 280px;
+    height: 150px;
+    background: linear-gradient(to right, rgb(20, 30, 48), rgb(36, 59, 85));
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.7) 5px 10px 50px, rgba(0, 0, 0, 0.7) -5px 0px 250px;
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    flex-direction: column;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    z-index: 2000;
+}
+
+.time-text {
+    font-size: 50px;
+    font-weight: 600;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0;
+}
+
+.time-sub-text {
+    font-size: 15px;
+    margin-left: 5px;
+}
+
+.day-text {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.moon {
+    font-size: 20px;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    transition: all 0.3s ease-in-out;
+}
+
+.card:hover>.moon {
+    font-size: 23px;
 }
