@@ -6,31 +6,56 @@
     <title>To-Do List</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <script src="darkmode.js"></script>
 </head>
 
 <body>
+    <!-- Botão Tema Claro/Escuro -->
+    <button id="theme-switch">
+        <!-- Sol -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12 4.5a1 1 0 0 1 1 1V8a1 1 0 1 1-2 0V5.5a1 1 0 0 1 1-1zm0 11a3.5 3.5 0 1 0 0-7 
+                     3.5 3.5 0 0 0 0 7zm0 2a5.5 5.5 0 1 1 0-11 
+                     5.5 5.5 0 0 1 0 11zM4.5 11a1 1 0 0 1 1-1H8a1 1 0 1 1 0 2H5.5a1 1 0 0 1-1-1zm11 7a1 1 
+                     0 0 1 1-1h2.5a1 1 0 1 1 0 2H16.5a1 1 0 0 1-1-1z"/>
+        </svg>
+        <!-- Lua -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M21 12.79A9 9 0 0 1 11.21 3 
+                     7 7 0 1 0 21 12.79z"/>
+        </svg>
+    </button>
+
+    <!-- Sidebar -->
     <input type="checkbox" id="check">
     <label for="check">
         <i class="fas fa-bars" id="btn"></i>
         <i class="fas fa-times" id="cancel"></i>
     </label>
     <div class="sidebar">
-        <header>Usuário 1</header>
+        <header>
+            <p>User 01</p>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                <path d="M320 312C386.3 312 440 258.3 440 192C440 125.7 386.3 72 320 72C253.7 72 200 125.7 200 192C200 258.3 253.7 312 320 312zM290.3 368C191.8 368 112 447.8 112 546.3C112 562.7 125.3 576 141.7 576L498.3 576C514.7 576 528 562.7 528 546.3C528 447.8 448.2 368 349.7 368L290.3 368z" />
+            </svg>
+        </header>
         <ul>
-            <li><a href="#"><i class="fas fa-qrcode"></i>Todas Tarefas</a></li>
-            <li><a href="#"><i class="fas fa-link"></i>Concluídas</a></li>
-            <li><a href="#"><i class="fas fa-stream"></i>Pendentes</a></li>
+            <li><a href="#" onclick="filterTasks('all')"><i class="fas fa-qrcode"></i> Todas Tarefas</a></li>
+            <li><a href="#" onclick="filterTasks('done')"><i class="fas fa-link"></i> Concluídas</a></li>
+            <li><a href="#" onclick="filterTasks('pending')"><i class="fas fa-stream"></i> Pendentes</a></li>
         </ul>
     </div>
 
-<section>
-    <div class="container">
-        <h1>Lista de tarefas</h1>
-        <input type="text" id="taskInput" placeholder="Adicione uma tarefa...">
-        <button onclick="addTask()">Adicionar</button>
-        <ul id="taskList"></ul>
-    </div>
-</section>
+    <!-- Conteúdo principal -->
+    <section>
+        <div class="container">
+            <h1>Lista de tarefas</h1>
+            <input type="text" id="taskInput" placeholder="Adicione uma tarefa...">
+            <button onclick="addTask()">Adicionar</button>
+            <ul id="taskList"></ul>
+        </div>
+    </section>
+
     <script src="todo.js"></script>
 </body>
 
