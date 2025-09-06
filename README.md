@@ -40,3 +40,15 @@ Aplicação web de lista de tarefas com foco em usabilidade, acessibilidade e vi
 - Google Fonts (Roboto)
 
 ## Estrutura do Projeto
+├─ index.html # Estrutura principal da aplicação
+├─ style.css # Estilos, temas e responsividade
+├─ todo.js # Lógica de tarefas (CRUD, filtros, progresso)
+├─ clock.js # Relógio e alternância de tema
+
+## Como Rodar Localmente
+
+1. Clone o repositório:
+   git clone https://github.com/daviixs/TODOLIST
+   cd TODOLIST
+Ou abra o index.html no navegador (duplo clique ou sirva com uma extensão como “Live Server”).
+Pronto! Não há dependências adicionais.
