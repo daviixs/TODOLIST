@@ -5,8 +5,7 @@ Aplicação web de lista de tarefas com foco em usabilidade, acessibilidade e vi
 ## Demonstração
 
 - Screenshot: (adicione aqui uma imagem do app)
-- Deploy: (link do seu GitHub Pages, Vercel, Netlify, etc.)
-- Portfólio: (link do seu site)
+- Deploy: https://daviixs.github.io/TODOLIST/
 
 ## Recursos
 
@@ -32,12 +31,9 @@ Aplicação web de lista de tarefas com foco em usabilidade, acessibilidade e vi
   - Texto com contraste adequado
 
 ## Stack
-
-- HTML5 semântico
+- HTML5
 - CSS3 (variáveis de tema, responsividade, animações)
 - JavaScript (manipulação do DOM e lógica da to‑do)
-- Font Awesome (ícones)
-- Google Fonts (Roboto)
 
 ## Estrutura do Projeto
 ├─ index.html # Estrutura principal da aplicação
