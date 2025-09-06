@@ -24,6 +24,7 @@ Aplicação web de lista de tarefas com foco em usabilidade e visual polido. Pos
   - Barra de progresso com animação
 - Tema:
   - Alternância claro/escuro via CSS variables (classe `.darkmode`)
+  - Para altenar é só clicar no Relogio
 - Relógio:
   - Horário com AM/PM e data por extenso
 - UI/UX:
