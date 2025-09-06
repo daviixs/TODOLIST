@@ -1,81 +1,102 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
-    <meta charset="utf-8">
-    <title>To-Do List</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <meta charset="utf-8">
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
-
 <body>
-    <!-- Botão Tema Claro/Escuro e Relogio -->
-    <div class="card" id="clock">
-        <p class="time-text"><span id="hours">11:11</span><span class="time-sub-text" id="ampm">PM</span></p>
-        <p class="day-text" id="date">Wednesday, June 15th</p>
-        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" stroke-width="0"
-            fill="currentColor" stroke="currentColor" class="moon">
-            <path
-                d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z">
-            </path>
-            <path
-                d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z">
-            </path>
-        </svg>
-    </div>
+  <!-- Botão Tema Claro/Escuro e Relógio -->
+  <div class="card" id="clock">
+    <p class="time-text">
+      <span id="hours">11:11</span>
+      <span class="time-sub-text" id="ampm">PM</span>
+    </p>
+    <p class="day-text" id="date">Wednesday, June 15th</p>
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" stroke-width="0" fill="currentColor" stroke="currentColor" class="moon">
+      <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path>
+      <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
+    </svg>
+  </div>
 
-    <!-- Sidebar -->
-    <input type="checkbox" id="check">
-    <label for="check">
-        <i class="fas fa-bars" id="btn"></i>
-        <i class="fas fa-times" id="cancel"></i>
-    </label>
-    <div class="sidebar">
-        <header>
-            <p>User</p>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
-                <path
-                    d="M320 312C386.3 312 440 258.3 440 192C440 125.7 386.3 72 320 72C253.7 72 200 125.7 200 192C200 258.3 253.7 312 320 312zM290.3 368C191.8 368 112 447.8 112 546.3C112 562.7 125.3 576 141.7 576L498.3 576C514.7 576 528 562.7 528 546.3C528 447.8 448.2 368 349.7 368L290.3 368z" />
-            </svg>
-        </header>
-        <ul>
-            <li><a href="#" onclick="filterTasks('all')"><i class="fas fa-qrcode"></i> Todas Tarefas</a></li>
-            <li><a href="#" onclick="filterTasks('done')"><i class="fas fa-link"></i> Concluídas</a></li>
-            <li><a href="#" onclick="filterTasks('pending')"><i class="fas fa-stream"></i> Pendentes</a></li>
-            <li><a href="#" onclick="filterTasks('alta')"><i class="fas fa-exclamation-circle"></i> Alta</a></li>
-            <li><a href="#" onclick="filterTasks('media')"><i class="fas fa-exclamation-triangle"></i> Média</a></li>
-            <li><a href="#" onclick="filterTasks('baixa')"><i class="fas fa-minus-circle"></i> Baixa</a></li>
-        </ul>
-    </div>
+  <!-- Sidebar -->
+  <input type="checkbox" id="check">
+  <label for="check">
+    <i class="fas fa-bars" id="btn"></i>
+    <i class="fas fa-times" id="cancel"></i>
+  </label>
+  <div class="sidebar">
+    <header>
+      <p>User</p>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+        <path d="M320 312C386.3 312 440 258.3 440 192C440 125.7 386.3 72 320 72C253.7 72 200 125.7 200 192C200 258.3 253.7 312 320 312zM290.3 368C191.8 368 112 447.8 112 546.3C112 562.7 125.3 576 141.7 576L498.3 576C514.7 576 528 562.7 528 546.3C528 447.8 448.2 368 349.7 368L290.3 368z" />
+      </svg>
+    </header>
+    <ul>
+      <li><a href="#" onclick="filterTasks('all')"><i class="fas fa-qrcode"></i> Todas Tarefas</a></li>
+      <li><a href="#" onclick="filterTasks('done')"><i class="fas fa-link"></i> Concluídas</a></li>
+      <li><a href="#" onclick="filterTasks('pending')"><i class="fas fa-stream"></i> Pendentes</a></li>
+      <li><a href="#" onclick="filterTasks('alta')"><i class="fas fa-exclamation-circle"></i> Alta</a></li>
+      <li><a href="#" onclick="filterTasks('media')"><i class="fas fa-exclamation-triangle"></i> Média</a></li>
+      <li><a href="#" onclick="filterTasks('baixa')"><i class="fas fa-minus-circle"></i> Baixa</a></li>
+    </ul>
+  </div>
 
-    <!-- Conteúdo principal -->
-    <section>
-        <div class="container">
-            <h1>Lista de tarefas</h1>
-            <input type="text" id="taskInput" placeholder="Adicione uma tarefa...">
-            <select id="taskPriority">
-                <option value="alta">Alta</option>
-                <option value="media" selected>Média</option>
-                <option value="baixa">Baixa</option>
-            </select>
-            <button onclick="addTask()">Adicionar</button>
-            <!-- Barra de progresso -->
-            <div class="progress-container">
-                <div class="progress-info">
-                    <span id="progress-text">0 de 0 concluídas</span>
-                    <span id="progress-percent">0%</span>
-                </div>
-                <div class="progress-bar">
-                    <div id="progress-fill"></div>
-                </div>
-            </div>
+  <!-- Conteúdo principal -->
+  <section>
+    <div class="container">
+      <h1>Lista de tarefas</h1>
+      <input type="text" id="taskInput" placeholder="Adicione uma tarefa...">
+      <select id="taskPriority">
+        <option value="alta">Alta</option>
+        <option value="media" selected>Média</option>
+        <option value="baixa">Baixa</option>
+      </select>
+      <button onclick="addTask()">Adicionar</button>
 
-            <ul id="taskList"></ul>
+      <!-- Barra de progresso -->
+      <div class="progress-container">
+        <div class="progress-info">
+          <span id="progress-text">0 de 0 concluídas</span>
+          <span id="progress-percent">0%</span>
         </div>
-    </section>
+        <div class="progress-bar">
+          <div id="progress-fill"></div>
+        </div>
+      </div>
 
-    <script src="todo.js"></script>
-    <script src="clock.js"></script>
+      <ul id="taskList"></ul>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-title">Conecte-se comigo - Feito para teste</p>
+      <div class="footer-links">
+        <a href="https://github.com/daviixs/" target="_blank" rel="noopener" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+          <span>GitHub</span>
+        </a>
+        <a href="https://www.linkedin.com/in/davi-xavier-silva/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://davixs.vercel.app/" target="_blank" rel="noopener" aria-label="Portfólio">
+          <i class="fas fa-globe"></i>
+          <span>Portfólio</span>
+        </a>
+      </div>
+      <p class="footer-copy">© <span id="year"></span> Seu Nome. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="todo.js"></script>
+  <script src="clock.js"></script>
+  <script>
+    // Atualiza o ano do rodapé
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
-
 </html>
