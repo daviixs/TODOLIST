@@ -32,10 +32,10 @@ Aplicação web de lista de tarefas com foco em usabilidade, acessibilidade e vi
 - JavaScript (manipulação do DOM e lógica da to‑do)
 
 ## Estrutura do Projeto
-├─ index.html # Estrutura principal da aplicação
-├─ style.css # Estilos, temas e responsividade
-├─ todo.js # Lógica de tarefas (CRUD, filtros, progresso)
-├─ clock.js # Relógio e alternância de tema
+├─ index.html     # Estrutura principal da aplicação
+├─ style.css      # Estilos, temas e responsividade
+├─ todo.js        # Lógica de tarefas (CRUD, filtros, progresso)
+└─ clock.js       # Relógio e alternância de tema
 
 ## Como Rodar Localmente
 
