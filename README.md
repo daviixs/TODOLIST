@@ -25,11 +25,7 @@ Aplicação web de lista de tarefas com foco em usabilidade, acessibilidade e vi
   - Horário com AM/PM e data por extenso
 - UI/UX:
   - Animações sutis, sombras (elevation presets), responsivo
-- Acessibilidade:
-  - Uso de `aria-label` em botões de ação
-  - Foco/hover visíveis
-  - Texto com contraste adequado
-
+    
 ## Stack
 - HTML5
 - CSS3 (variáveis de tema, responsividade, animações)
